@@ -1,0 +1,36 @@
+{
+  "name": "combine-section-selectors",
+  "version": "1.0.0",
+  "description": "Combine selectors from state to one set of selectors. Useful with redux and combineReducer or combine-section-reducer",
+  "main": "combine-section-selectors.js",
+  "scripts": {
+    "build": "babel ./index.js > ./combine-section-selectors.js",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iofjuupasli/combine-section-selectors.git"
+  },
+  "keywords": [
+    "redux",
+    "utils"
+  ],
+  "author": "Valery Tretyak <iofjuupasli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iofjuupasli/combine-section-selectors/issues"
+  },
+  "homepage": "https://github.com/iofjuupasli/combine-section-selectors#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0"
+  },
+  "babel": {
+    "presets": [
+      "flow",
+      "es2015"
+    ]
+  }
+}
