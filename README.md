@@ -11,14 +11,14 @@ Every selector should have `get` prefix in name! E.g. `getMyValue`.
 Also names of all selectors should be uniq.
 
 #### default export:
-```
+```js
 (modules: {[string]: {[string]: Function}}) =>
     ({[string]: Function})
 ```
 
 Name of module should be exact same as key on where state is stored.
 So if you have `state.users.userId`, you should combine selectors for `users` on `"users"` key:
-```
+```js
 const fromState = combineSelectors({
     users: {
         getUser: (users, userId) => users[userId],
@@ -38,7 +38,7 @@ Example
 ---
 
 ### reducer for counter
-```
+```js
 const counter = (state = 0, action) => {
     switch (action.type) {
         case `ADD`:
@@ -51,12 +51,12 @@ export default counter;
 ```
 
 ### selectors for counter
-```
+```js
 export const getCount = (state, minusCount) => state - minusCount;
 ```
 
 ### combine
-```
+```js
 import {combineReducers} from 'redux';
 import combineSelectors from 'combine-section-selectors';
 import counter from './counter';
@@ -78,12 +78,12 @@ fromState.getCount(store.getState(), 3); // returns 2 (5 in state minus 3 from a
 Motivation and alternatives
 ---
 Without such module you should always set path to entity in selector:
-```
+```js
 const getUser = (state, userId) => state.data.users.entities[userId];
 ```
 which is awkward, because it makes this selector depending on where substate is connected to entire state.
 
 Or even worse, pass path to substate on every usage of selector:
-```
+```js
 fromState.getUser(state.data.users, userId);
 ```
