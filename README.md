@@ -12,8 +12,8 @@ Also names of all selectors should be uniq.
 
 #### default export:
 ```js
-(modules: {[string]: {[string]: Function}}) =>
-    ({[string]: Function})
+(modules: {[moduleName: string]: {[selectorName: string]: (sectionState, ...args, rootState) => ReturnType}}) =>
+    ({[selectorName: string]: (rootState, ...args) => ReturnType})
 ```
 
 Name of module should be exact same as key on where state is stored.
